@@ -1,0 +1,38 @@
+HAFTA-5 : CLASS ANLATIMI :
+    ## def isimDüzelt(self,isimArg) fonksiyonunu yazarken her zaman self'i kullanırız. self işaretçi olarak bulunur.
+    EXP:
+    class insanlar:                  
+          isim = ""
+          soyİsim = ""
+          yas = ""
+          def isimDüzelt(self,isimArg):
+              self.isim = isimArg
+          def soyİsimDüzelt(self,soyİsimArg):
+              self.soyİsim = soyİsimArg
+          def yasDüzelt(self,yasArg):
+              self.yas = yasArg
+    insanObjesi1 = insanlar()
+    insanObjesi1.isimDüzelt("Mustafa")
+    insanObjesi1.soyİsimDüzelt("Demir")
+    insanObjesi1.yasDüzelt(22)
+    print(insanObjesi1.isim)
+    print(insanObjesi1.soyİsim)
+    print(insanObjesi1.yas)
+
+    CONSTRUCTOR :                 ## constructor ilk atama yapılacağı zaman kullanılır.
+    def __init__(self,isimArg):
+        self.isim = isimArg
+    EXP:
+    class kisi:
+        isim = ""
+        def __init__(self,isimArg):
+            self.isim = isimArg
+        def testMesaji(self):
+            print("Merhaba benim adım ",self.isim)    
+    insan1 = kisi("Mustafa")
+    kisi.testMesaji()
+  
+  
+  
+          
+ 
