@@ -1,4 +1,4 @@
-HAFTA-5 : CLASS ANLATIMI :
+HAFTA-5 : CLASS ANLATIMI,CONSTRUCTOR,DESTRUCTOR,PRİVATE :
     ## def isimDüzelt(self,isimArg) fonksiyonunu yazarken her zaman self'i kullanırız. self işaretçi olarak bulunur.
     EXP:
     class insanlar:                  
@@ -19,6 +19,9 @@ HAFTA-5 : CLASS ANLATIMI :
     print(insanObjesi1.soyİsim)
     print(insanObjesi1.yas)
 
+
+
+
     CONSTRUCTOR :                 ## constructor ilk atama yapılacağı zaman kullanılır.
     def __init__(self,isimArg):
         self.isim = isimArg
@@ -31,8 +34,130 @@ HAFTA-5 : CLASS ANLATIMI :
             print("Merhaba benim adım ",self.isim)    
     insan1 = kisi("Mustafa")
     kisi.testMesaji()
-  
-  
+    
+    EXP:
+    class kopek:
+        def __init__(self,cinsi,rengi):
+            self.cins = cinsi           ## __init__ olduğu için başta cins ve renk yazmamıza gerek yok.
+            self.renk = rengi
+        def renkDegis(self,rengi):
+            self.renk = rengi
+    kopek1 = kopek("Pitbull","Siyah")
+    kopek2 = kopek("BullDog","Kahverengi")
+    kopek1.renkDegis("beyaz")
+    print("Birinci kopek bilgileri:")
+    print("Cinsi:",kopek1.cins,"Rengi:",kopek1.renk)
+    print("İkinci kopek bilgileri:")
+    print("Cinsi:",kopek2.cins,"Rengi:",kopek2.renk)
+    
+    EXP:
+    class toplama:
+    birinci = 0
+    ikinci = 0
+    toplam = 0
+    def __init__(self,f,s):
+        self.birinci = f
+        self.ikinci = s
+    def toplama(self):
+        self.sonuc = self.birinci + self.ikinci
+    def goster(self):
+        print("Birinci Sayi:",self.birinci)
+        print("İkinci Sayi:",self.ikinci)
+        print("Toplam Sayi:",self.sonuc)
+    islem1 = toplama(1000,2000)
+    islem1.toplama()
+    islem1.goster()
+    
+    
+    
+    
+    
+    
+    DESTRUCTOR:
+    EXP:            ## destructor bir kodla işimize bittiğinde RAM'de daha fazla yer kaplamasın diye slinmesi için kullanılır. (def __del__)
+        class calisanlar:
+            def __init__(self):
+                print("calisan olusturuldu.")
+            def __del__(self):
+                print("Destructor çagirildi. Calisan objesi silindi.")
+        obj = calisanlar()
+        del obj
+    
+    EXP:
+    class calisanlar:
+        def __init__(self):
+            print("calisan olusturuldu")
+        def __del__(self):
+            print("Destructor çagirildi.")
+    def testFonksiyonu():
+        print("Calisan olusturulacak.")
+        calisan = calisanlar()          ##fonksiyon bittikten sonra calisan class ı ile iş bittiği için otomatik destructor çalışır ve class ı siler.
+        print("Fonksiyon bitimi...")
+    print("Test fonksiyonu cagirilacak.")
+    testFonksiyonu()
+    print("program bitimi")
+    
+    PRİVATE:
+    EXP:
+        class calisanlar:
+            def __isimAyarla(isimArg):  ##__isimAyarla fonksiyonu private tanımlanmış. Yani sadece sınıf içindeki diğer fonksiyonlar tarafından çağırılabilir.
+                self.isim=isimArg
+            def __init__(self,isimArg,maasArg):
+                self.isim = isimArg
+                self.__maas=maasArg     ##__maas degiskenine erişilmeye çalışıldığında hata alınacaktır. 
+        calisan1 = calisanlar("Ahnet",4500)
+        print(calisan1.isim)
+        print(calisan1._maas)
+    
+    EXP: # PRİVATE
+    class laptop:
+        isim = ""
+        islemci = ""
+        frekans = ""
+        def baslat(self):
+            print("Laptop",self.isim,"baslatiliyor...")
+        def  yenidenBaslat(self):
+            print("Laptop",self.isim,"yeniden baslatiliyor...")
+        def detaylariGetir(self):
+            print("Laptop adi:",self.isim)
+            print(self.islemci,"islemcisine sahiptir.")
+            islemciGucu = self.frekans * 10
+            print("İslemci gücü",islemciGucu,"sahiptir")
+
+    laptop1 = laptop()
+    laptop1.isim = "HP"
+    laptop1.islemci = "Intel Core i7"
+    laptop1.frekans = 2.5
+    laptop1.baslat()
+    laptop1.yenidenBaslat()
+    laptop1.detaylariGetir()
+    
+    EXP:
+    class kargo:
+        kargoNo = ""
+        kargoDesi = ""
+        kargoKg = ""
+        def __init__(self,kargoNoArg,kargoDesiArg,kargoKgArg):
+            self.kargoNo = kargoNoArg
+            self.kargoDesi = kargoDesiArg
+            self.kargoKg = kargoKgArg
+        def kargoUcretHesaplama(self):
+            ucret = self.kargoDesi/3 * self.kargoKg*2
+            print(self.kargoNo,"numarali kargo icin hesaplanan ücret",ucret)
+
+    kargo1 = kargo(1234,5,10)
+    kargo2 = kargo(1235,3,2)
+    kargo3 = kargo(1236,4,5)
+    kargo4 = kargo(1237,6,7)
+    kargo5 = kargo(1238,8,9)
+    kargoListesi = [kargo1,kargo2,kargo3,kargo4,kargo5]
+    for x in kargoListesi:
+        x.kargoUcretHesaplama() 
+
+        
+
+    
+      
   
           
  
