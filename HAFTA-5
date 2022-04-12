@@ -1,3 +1,86 @@
+NOTLAR:
+        a = "Mustafa Demir"
+
+    print(a.strip()) 	# cümlenin başında veya sonunda boşluk varsa bunları kaldırır.
+    print(a.lower())	# a kelimesindeki tüm harflari küçük yazar.
+    print(a.upper())	# a kelimesindeki tüm hafleri büyük yazar.
+    x = a.replace("H","J")  # a kelimesindeki tüm H leri J yapar.
+
+    x = "taf" in a		# eğer a kelimesinin içinde taf varsa print(x) true yazar. 
+    print(x)
+
+    ////////////////////
+
+    txt = "Merhaba, benim yasim {}"		#txt.format() diyerek süslü parantez içine sayi1 yazdırıyoz.
+    yas1 = 22			
+    print(txt.format(yas1))	
+
+    //////////////////////
+
+    \o110 = H 	#\o octal değeri girer.
+    \x65 = A	#\x hex değeri verir
+    \b 		#backspace yapar
+
+    /////////////////////////////////
+
+    degisken = sorted(degisken) 	#sayilari küçükten büyüğe dizmek için
+    liste = ["xyz","abc","def"]
+    liste.append("Yeni eleman")	#listenin sonuna yeni eleman ekler
+    liste.insert(1,"Yeni eleman")	#listenin 1. indexine elemanı ekler
+    liste.remove("eleman 2")	#listeden istediğimiz elemanı kaldırırız.
+    del liste[1]			#listeden istediğimiz indexteki elemanı silmek için
+    liste.pop()			#listenin sonuncu elemanını silmek için
+    liste.clear()			#tüm listeyi silmek için
+    liste3 = liste2 + liste1	#listeleri ardarda ekleyebiliriz
+    liste.sort()			#listeyi alfabetik sıralamak için
+    liste.reverse			#listeyi tersten sıralamak için
+    //////////////////////////////////////////////////////////////////////
+    tuple
+    tuple = ("xyz","abc","def")	# tuple da yeni eleman ekleme, değiştirme ve silme olmaz. Tanımlandıktan sonra değiştirelemez bir yapıdadır.
+    /////////////////////////////////////////////////////////////////////
+    Sets
+    sıralı değil ve her elemanı eşsiz.
+    Elemanlar değiştirilemez ancak yeni eleman eklenebilir ve silinebilir.
+    Indeksleri yok.
+    set = {1,2,3}
+    set = {1.0,"Hello",(1,2,3)}
+    ////////////////////////////////////////////////
+    birleşim kümesi -> print(A/B)
+    kesişim kümesi -> print(A&B)
+    fark işlemi -> print(A-B)
+    simetrik fark. birleşim kümesi - kesişim kümesi = print(A^B)
+    //////////////////////////////////////////////////////
+    sozluk1.update(sozluk2)		#sozluk2 yi sozluk1'e eklemek için
+    list(set(list1).intersection(list2))	#listeler içindeki ortak elemanları bulmak için
+    ////////////////////////////////////////////////////////////////
+    2 LİSTE ARASINDAKİ ORTAK ELEMANLARI BULMA:
+    def common_member(a, b):   
+    a_set = set(a)
+    b_set = set(b)
+     
+    # check length
+    if len(a_set.intersection(b_set)) > 0:
+        return(a_set.intersection(b_set)) 
+    else:
+        return("no common elements")
+
+    a = [1, 2, 3, 4, 5]
+    b = [5, 6, 7, 8, 9]
+    print(common_member(a, b))
+  
+    a =[1, 2, 3, 4, 5]
+    b =[6, 7, 8, 9]
+    print(common_member(a, b))
+    
+    
+    
+
+
+
+
+
+
+
 HAFTA-5 : CLASS ANLATIMI,CONSTRUCTOR,DESTRUCTOR,PRİVATE :
     ## def isimDüzelt(self,isimArg) fonksiyonunu yazarken her zaman self'i kullanırız. self işaretçi olarak bulunur.
     EXP:
@@ -153,6 +236,15 @@ HAFTA-5 : CLASS ANLATIMI,CONSTRUCTOR,DESTRUCTOR,PRİVATE :
     kargoListesi = [kargo1,kargo2,kargo3,kargo4,kargo5]
     for x in kargoListesi:
         x.kargoUcretHesaplama() 
+
+
+
+HAFTA-8: KALITIM(INHERITANCE)
+
+private degisken:
+    def __isimAyarla(isimArg):  ##sadece kendi sınıfı içindeki diğer fonksiyonlar erişebilir. Dışardan çalişan1.__isimAyarla() diye çağırılamaz.
+        self.isim = isimArg
+
 
         
 
