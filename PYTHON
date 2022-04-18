@@ -248,8 +248,8 @@ private degisken:
         
       
 HAFTA-9: DECORATOR
-        def genelDecorator(func):
-                def geriDonecekFonksiyon(*args, **kwargs):
+        def genelDecorator(func):               
+                def geriDonecekFonksiyon(*args, **kwargs):              ## SINIRSIZ ARGUMAN YAZMAK İÇİN
                 print("Herhangi bir fonksiyon icin calisabilir")
                 return func(*args, **kwargs)
         return geriDonecekFonksiyon
