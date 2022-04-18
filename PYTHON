@@ -244,6 +244,15 @@ HAFTA-8: KALITIM(INHERITANCE)
 private degisken:
     def __isimAyarla(isimArg):  ##sadece kendi sınıfı içindeki diğer fonksiyonlar erişebilir. Dışardan çalişan1.__isimAyarla() diye çağırılamaz.
         self.isim = isimArg
+        
+        
+      
+HAFTA-9: DECORATOR
+        def genelDecorator(func):
+                def geriDonecekFonksiyon(*args, **kwargs):
+                print("Herhangi bir fonksiyon icin calisabilir")
+                return func(*args, **kwargs)
+        return geriDonecekFonksiyon
 
 
         
